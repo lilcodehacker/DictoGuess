@@ -30,7 +30,7 @@ while True in pstat:
             else:
                 print (f"Your score was {pscore[h]}👎")
             for i in range(players):
-                print (f"Player {i}'s Score was: {pscore[i]}")
+                print (f"Player {i+1}'s Score was: {pscore[i]}")
             quit()
         if query == "hint" or query == "?":
             hint = get_entries(word)
@@ -51,5 +51,5 @@ while True in pstat:
                     print (f"WRONG!!!!👎")
     pscore[h] = pscore[h]+1
 for i in range(players):
-     print (f"Player {i}'s Score was: {pscore[i]}")
+     print (f"Player {i+1}'s Score was: {pscore[i]}")
 quit()
