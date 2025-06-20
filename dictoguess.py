@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from wonderwords import RandomWord
-from dictionary.britannica import *
+from dictionary import *
 r = RandomWord()
 pstat = []
 pscore = []
