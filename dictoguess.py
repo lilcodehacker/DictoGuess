@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from wonderwords import RandomWord
-from dictionary import *
+from dictionary.britannica import *
 r = RandomWord()
 pstat = []
 pscore = []
@@ -19,7 +19,7 @@ while True in pstat:
     word = r.word()
     list = get_definitions(word)
     string = str(list)
-    string = string.replace(word, "")
+    string = string.replace(word, "_____")
     print(f"{string}")
     for i in range(5):
         query = input("What is the Word?📚 ")
