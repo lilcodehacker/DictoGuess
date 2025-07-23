@@ -1,4 +1,4 @@
-# Reverse dictionary 
+# DictoGuess
 This is my first Python script. It gives you a definition, and you have to guess the word.
 
 ***Prerequisites:*** python3 randomwords britannica-dictionary (both of the latter are python libraries)
