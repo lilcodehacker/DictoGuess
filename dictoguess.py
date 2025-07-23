@@ -62,7 +62,7 @@ while True in pstat:
           if phint[h] > 0:
             hint = word[:3]
             print(hint)
-            print(f"{phint[h]}Hints left")
+            print(f"{phint[h]} Hints left")
           else:
             print("No more hints left☹️")
         else:
