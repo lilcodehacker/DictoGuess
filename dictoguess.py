@@ -5,12 +5,14 @@ r = RandomWord()
 pstat = []
 pscore = []
 points = 0
+phint = []
 exit_conditions = (":q", "quit", "exit", "i'm done", "i quit")
 players = input("How Many Players? ")
 players = int(players)
 for i in range(players):
         pstat.append(True)
         pscore.append(0)
+        phint.append(5)
 while True in pstat:
   for h in range(players):
     if not pstat[h]:
@@ -33,8 +35,12 @@ while True in pstat:
                 print (f"Player {i+1}'s Score was: {pscore[i]}")
             quit()
         if query == "hint" or query == "?":
-            hint = get_entries(word)
-            print(hint)
+          if phint[h] > 0:
+            hint = word[:3]
+            print(phint[h])
+            print(phint[h] + "Hints left")
+          else
+            print("No more hints left☹️")
         else:
             if query == word:
                 print (f"You Did it👍 the Word was: {word}!!")
