@@ -13,7 +13,7 @@ Rules:
     ·Each Player gets 5 strikes before becoming out.
 
 This program is under the GNU GPL 3.0+ license.
-If you have any problems, please contact me via GitHub @lilcodehacker
+If you have any problems or questions, please contact me via GitHub @lilcodehacker
 '''
 exit_conditions = (":q", "quit", "exit", "i'm done", "i quit")
 print(welcome)
