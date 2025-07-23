@@ -39,7 +39,7 @@ while True in pstat:
             hint = word[:3]
             print(phint[h])
             print(phint[h] + "Hints left")
-          else
+          else:
             print("No more hints left☹️")
         else:
             if query == word:
