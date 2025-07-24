@@ -1,11 +1,8 @@
 # DictoGuess
 This is my first Python script. It gives you a definition, and you have to guess the word.
 
-***Prerequisites:*** python3 randomwords britannica-dictionary (both of the latter are python libraries)
+***Prerequisites:*** Python3 requests (the latter is a Python library)
 
 **To play**
 
-Download the script and the python libraries then run it in the terminal.
-
-**Note**
-You will need to replace the api_KEY with a api ninja api key
+Download the script and the Python libraries, then run it in the terminal.
