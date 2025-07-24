@@ -2,7 +2,6 @@ import json
 import requests
 pstat = []
 pscore = []
-points = 0
 phint = []
 welcome = '''Welcome to DictoGuess, the fun word guessing game.
 Object: Go as far as you can without getting out, OR be the last one standing.
@@ -72,11 +71,10 @@ while True in pstat:
             print(f"{phint[h]} Hints left")
           else:
             print("No more hints left☹️")
-        else:
-            if query == word:
+        if query == word:
                 print (f"You Did it👍 the Word was: {word}!!")
                 break
-            else:
+        else:
                 if i == 4:
                     print (f"You LOSE!!!!👎 the word was {word}!!!")
                     if points > 10:
