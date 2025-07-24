@@ -1,4 +1,3 @@
-#!/bin/env python3
 import json
 import requests
 pstat = []
@@ -6,7 +5,7 @@ pscore = []
 points = 0
 phint = []
 welcome = '''Welcome to DictoGuess, the fun word guessing game.
-Object: Go as far as you can without getting out OR be the last one standing.
+Object: Go as far as you can without getting out, OR be the last one standing.
 Gameplay: Player(s) take turns guessing a word with only the definition as a clue.
 Rules: 
     ·Each Player gets 5 hints.
@@ -34,18 +33,27 @@ while True in pstat:
      word = word.text
      word = str(word)
      word = word.replace("[", "")
+     word = word.replace("}", "")
+     word = word.replace(":", "")
+     word = word.replace("word", "")
+     word = word.replace("{", "")
      word = word.replace("]", "")
      word = word.replace("\"", "")
-     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
-     list = requests.get(url)
+     api_url = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
+     list = requests.get(api_url, headers={'X-Api-Key': 'aixp2s2d4P8jS0pCmemNJQ==GrNeuNie5ClyabJ9'})
      list = list.text
      string = str(list)
      string = string.replace(word, "_____")
-     string2 = json.dumps(string, indent=4)
-     if "No Definitions Found" in string:
+     string = string.replace("[", "")
+     string = string.replace("]", "")
+     string = string.replace("\"", "")
+     string = string.replace("{", "")
+     string = string.replace("}", "")
+     string = string.replace("valid: false", "")
+     if ": false" in string:
          setword()
      else:
-         print(f"{string2}")
+         print(f"{string}")
     setword()
     for i in range(5):
         query = input("What is the Word?📚 ")
@@ -55,9 +63,7 @@ while True in pstat:
                 print (f"Your score was {pscore[h]}!!👍")
             else:
                 print (f"Your score was {pscore[h]}👎")
-            for i in range(players):
-                print (f"Player {i+1}'s Score was: {pscore[i]}")
-            quit()
+            pstat[h] = False
         if query == "hint" or query == "?":
           if phint[h] > 0:
             hint = word[:3]
