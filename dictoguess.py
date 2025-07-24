@@ -35,7 +35,6 @@ while True in pstat:
      word = word.replace("[", "")
      word = word.replace("}", "")
      word = word.replace(":", "")
-     word = word.replace("word", "")
      word = word.replace("{", "")
      word = word.replace("]", "")
      word = word.replace("\"", "")
@@ -68,6 +67,7 @@ while True in pstat:
         if query == "hint" or query == "?":
           if phint[h] > 0:
             hint = word[:3]
+            phint[h] = phint[h]-1
             print(hint)
             print(f"{phint[h]} Hints left")
           else:
