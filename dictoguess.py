@@ -49,7 +49,7 @@ while True in pstat:
      string = string.replace("\"", "")
      string = string.replace("{", "")
      string = string.replace("}", "")
-     string = string.replace("valid: false", "")
+     string = string.replace("valid: true", "")
      if ": false" in string:
          setword()
      else:
@@ -64,6 +64,7 @@ while True in pstat:
             else:
                 print (f"Your score was {pscore[h]}👎")
             pstat[h] = False
+            break
         if query == "hint" or query == "?":
           if phint[h] > 0:
             hint = word[:3]
