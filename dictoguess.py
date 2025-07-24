@@ -40,7 +40,7 @@ while True in pstat:
      word = word.replace("]", "")
      word = word.replace("\"", "")
      api_url = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
-     list = requests.get(api_url, headers={'X-Api-Key': 'aixp2s2d4P8jS0pCmemNJQ==GrNeuNie5ClyabJ9'})
+     list = requests.get(api_url, headers={'X-Api-Key': 'api_KEY'})
      list = list.text
      string = str(list)
      string = string.replace(word, "_____")
