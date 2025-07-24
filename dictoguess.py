@@ -39,8 +39,8 @@ while True in pstat:
      word = word.replace("{", "")
      word = word.replace("]", "")
      word = word.replace("\"", "")
-     api_url = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
-     list = requests.get(api_url, headers={'X-Api-Key': 'api_KEY'})
+     api_url = f'https://api.dictionaryapi.dev/api/v2/entries/en/{word}'
+     list = requests.get(api_url)
      list = list.text
      string = str(list)
      string = string.replace(word, "_____")
@@ -50,7 +50,7 @@ while True in pstat:
      string = string.replace("{", "")
      string = string.replace("}", "")
      string = string.replace("valid: true", "")
-     if ": false" in string:
+     if "No Definitions Found" in string:
          setword()
      else:
          print(f"{string}")
