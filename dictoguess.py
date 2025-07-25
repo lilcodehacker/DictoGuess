@@ -1,6 +1,6 @@
-import json
 import requests
 pstat = []
+hint = False
 pscore = []
 phint = []
 welcome = '''Welcome to DictoGuess, the fun word guessing game.
@@ -15,7 +15,14 @@ If you have any problems or questions, please contact me via GitHub @lilcodehack
 '''
 exit_conditions = (":q", "quit", "exit", "i'm done", "i quit")
 print(welcome)
-players = input("How Many Players? ")
+def setplayers():
+ global players
+ players = input("How Many Players? ")
+ try:
+    int(players)
+ except:
+    setplayers()
+setplayers()
 players = int(players)
 for i in range(players):
         pstat.append(True)
@@ -28,7 +35,7 @@ while True in pstat:
     print (f"Player {h+1}'s turn")   
     def setword():
      global word     
-     word = requests.get("https://random-word-api.herokuapp.com/word")
+     word = requests.get("https://random-word-api.vercel.app/api?words=1")
      word = word.text
      word = str(word)
      word = word.replace("[", "")
@@ -57,7 +64,7 @@ while True in pstat:
         query = input("What is the Word?📚 ")
         if query in exit_conditions:
             print ("You quitter👎 the Word was: " + word + "!!")
-            if points > 10:
+            if pscore[h] > 10:
                 print (f"Your score was {pscore[h]}!!👍")
             else:
                 print (f"Your score was {pscore[h]}👎")
@@ -69,6 +76,7 @@ while True in pstat:
             phint[h] = phint[h]-1
             print(hint)
             print(f"{phint[h]} Hints left")
+            hint = True
           else:
             print("No more hints left☹️")
         if query == word:
@@ -77,13 +85,16 @@ while True in pstat:
         else:
                 if i == 4:
                     print (f"You LOSE!!!!👎 the word was {word}!!!")
-                    if points > 10:
+                    if pscore[h] > 10:
                         print (f"Your score was {pscore[h]}!!👍")
                     else:
                         print (f"Your score was {pscore[h]}👎")
                     pstat[h] = False
                 else:
-                    print (f"WRONG!!!!👎")
+                    if hint == True:
+                     hint = False
+                    else:
+                     print (f"WRONG!!!!👎")
     pscore[h] = pscore[h]+1
 for i in range(players):
      print (f"Player {i+1}'s Score was: {pscore[i]}")
